@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "todo-console"
+version = "0.1.0"
+description = ""
+authors = ["Dmitry <dz5011@yandex.ru>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "todo_console"}]
+
+[tool.poetry.dependencies]
+python = ">=3.7,<4.0"
+sqlalchemy = "1.4.46"
+pydantic = "^1.10.5"
+alembic = "^1.9.4"
+loguru = "^0.6.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
