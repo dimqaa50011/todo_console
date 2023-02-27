@@ -45,6 +45,7 @@ class TaskCRUD(TaskBaseCRUD):
             result = OutTaskSchema(
                 id=task.id,
                 title=task.title,
+                body=task.body,
                 is_complited=task.is_complited,
                 created_at=task.created_at,
                 updated_at=task.updated_at
