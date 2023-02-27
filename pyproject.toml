@@ -1,11 +1,10 @@
 [tool.poetry]
-name = "todo-console"
+name = "todo"
 version = "0.1.0"
 description = ""
 authors = ["Dmitry <dz5011@yandex.ru>"]
 license = "MIT"
 readme = "README.md"
-packages = [{include = "todo_console"}]
 
 [tool.poetry.dependencies]
 python = ">=3.7,<4.0"
