@@ -27,7 +27,7 @@ class ConsoleApplication:
         msg = self._get_commands()
         print(msg)
         while True:
-            cmd = input('Введите команду: ')
+            cmd = input('\nВведите команду: ')
             self._handler(cmd)
             
     @execute_command
