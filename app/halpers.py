@@ -12,7 +12,7 @@ def get_card(task: OutTaskSchema) -> str:
         return '\n'.join(
                     (
                         f'ID: {task.id}',
-                        f'ЗАголовок: {task.title}',
+                        f'Зaголовок: {task.title}',
                         'Тело заметки отсутсвует' if task.body is None else f'Зaметка: {task.body}',
                         f'Время создания: {datetime.strftime(task.created_at, "%d %b %Y %H:%M")}',
                         f'Время последнего обновления: {datetime.strftime(task.updated_at, "%d %b %Y %H:%M")}',
@@ -22,7 +22,10 @@ def get_card(task: OutTaskSchema) -> str:
 
 def get_all_cards(data: List[OutTaskSchema]) -> List:
     if isinstance(data, list) and isinstance(data[0], OutTaskSchema):
-        return [get_card(task) for task in data]
+        cards = []
+        for item in data:
+            cards.append('#####\n{}\n'.format(get_card(item)))
+        return '\n'.join(cards)
 
 
 def get_pk():
