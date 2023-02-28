@@ -45,6 +45,7 @@ class TaskCRUD(TaskBaseCRUD):
             result = OutTaskSchema(
                 id=task.id,
                 title=task.title,
+                body=task.body,
                 is_complited=task.is_complited,
                 created_at=task.created_at,
                 updated_at=task.updated_at
@@ -65,7 +66,7 @@ class TaskCRUD(TaskBaseCRUD):
                 updated_at=result.updated_at
             )
     
-    def get_task_by_date(self, start_date: datetime, end_date: datetime) -> OutTaskSchema:
+    def get_task_by_date(self, start_date: datetime, end_date: datetime) -> TasksList:
         stmt = select(TaskModel).where(and_(TaskModel.created_at >= start_date, TaskModel.created_at <= end_date))
         result = self._session.scalars(stmt)
         return self._format_all_tasks(result.fetchall())
@@ -75,12 +76,12 @@ class TaskCRUD(TaskBaseCRUD):
         result = self._session.scalars(stmt)
         return self._format_all_tasks(result.fetchall())
     
-    def update_task(self, pk: int, data: UpdateTaskSchrma):
+    def update_task(self, pk: int, data: UpdateTaskSchrma) -> None:
         stmt = update(TaskModel).where(TaskModel.id == pk).values(**data.dict())
         self._session.execute(stmt)
         self._session.commit()
     
-    def delete_taks(self, pk: int) -> None:
+    def delete_task(self, pk: int) -> None:
         stmt = delete(TaskModel).where(TaskModel.id == pk)
         self._session.execute(stmt)
         self._session.commit()
