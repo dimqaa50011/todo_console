@@ -93,3 +93,4 @@ class TaskCRUD(TaskBaseCRUD):
                     body=task.body,
                     is_complited=task.is_complited,
                 ) for task in data])
+        

@@ -1,5 +1,4 @@
-from datetime import datetime, timedelta
-from typing import Optional
+from datetime import timedelta
 
 from .db_api import TaskCRUD, CreateTaskSchema, UpdateTaskSchrma
 from .halpers import get_card, get_all_cards, get_pk, get_search_date
@@ -105,5 +104,3 @@ class AppCommands:
                 )
             )
         return f'Задача №{task.id} обновлена'
-            
-            

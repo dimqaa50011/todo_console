@@ -4,6 +4,7 @@ from datetime import datetime
 
 from .db_api import OutTaskSchema
 
+
 DATE_FORMAT_PATTERN = re.compile(r'(\d{4}\-\d{2}\-\d{2})')
 
 

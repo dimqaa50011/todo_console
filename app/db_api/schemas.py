@@ -24,3 +24,4 @@ class OutTaskSchema(CreateTaskSchema):
 
 class TasksList(BaseModel):
     tasks: List[OutTaskSchema]
+    
